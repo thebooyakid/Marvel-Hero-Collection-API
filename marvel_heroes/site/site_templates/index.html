@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            {% for cat,msg in messages %}
+                {% if cat == 'user-created' %}
+                    <div class="alert alert-success">
+                        {{ msg }}
+                        <button type="button" class="close" data-dismiss = 'alert'>&times;</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+    <div class="container">
+        <!-- header section -->
+        <header class="row">
+            <div class="col-md-6" id="header-text">
+                <h2>Let's collect some Marvel heroes!</h2>
+                <h5>Create an API tool from Marvel hero collectors</h5>
+            </div>
+            <!-- header image -->
+            <div class="col-12 col-md-6">
+                <img class="header-image" src='../../static/images/marvel-soccer-team.jpg' alt="Marvel group image">
+            </div>      
+        </header>
+
+    <section class="row">
+        <div class="col-12" id="middle-text">
+            <h2>Display Your Collection!</h2>
+            <p>You can harness the power of an API to expand your collection!</p>
+        </div>
+    </section>
+
+    <section class="row" id="features-section">
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/cap.jpg" alt="cap Image" id="api-image">
+            <h4>Captain America</h4>
+            <p>
+                Do you have his data in your collection?
+            </p>
+        </div>
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/hulk.jpg" alt="hulk image" id="graphql-image">
+            <h4>Hulk</h4>
+            <p>
+                Do you have his data in your collection?
+            </p>
+        </div>
+        <div class="col-12 col-md-4">
+            <img src="../../static/images/thor.jpg" alt="thor image" id="database-image">
+            <h4>Thor</h4>
+            <p>
+                Do you have his data in your collection?
+            </p>
+        </div>
+    </section>
+
+    <section class="row">
+        <div class="col-12 col-md-6">
+            <img src="../../static/images/marvel_heroes.jpg" alt="hero team" id="Drone-image">
+        </div>
+        <div class="col-12 col-md-6">
+            <h4>Talk with like minded Marvel Hero collectors</h4>
+            <p>
+                Talk with other devs around the world and collab
+                on projects with your data. 
+            </p>
+            
+        </div>
+    </section>
+
+    <footer class="row" id="footer">
+        <div class="col-2 col-md-2">
+            <img src="../../static/images/marvel_logo.png" alt="marvel logo" id="footer-logo">
+            <img src="../../static/images/marvel_group.jpg" alt="marvel guys" id="footer-logo">
+        </div>
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Platform</h4>
+                <p>Why Marvel Heroes?</p>
+                <p>The Marvel Hero Project</p>
+                <p>Spread The Word</p>
+                <p>Our Process</p>
+            </div>
+        </div>
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Platform</h4>
+                <p>Why Marvel Heroes?</p>
+                <p>The Marvel Hero Project</p>
+                <p>Spread The Word</p>
+                <p>Our Process</p>
+            </div>
+        </div>
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Platform</h4>
+                <p>Why Marvel Heroes?</p>
+                <p>The Marvel Hero Project</p>
+                <p>Spread The Word</p>
+                <p>Our Process</p>
+            </div>
+        </div>
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Platform</h4>
+                <p>Why Marvel Heroes?</p>
+                <p>The Marvel Hero Project</p>
+                <p>Spread The Word</p>
+                <p>Our Process</p>
+            </div>
+        </div>
+        <div class="col-2 col-md-2">
+            <div class="footer-text-flex">
+                <h4>Platform</h4>
+                <p>Why Marvel Heroes?</p>
+                <p>The Marvel Hero Project</p>
+                <p>Spread The Word</p>
+                <p>Our Process</p>
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+{% endblock content %}

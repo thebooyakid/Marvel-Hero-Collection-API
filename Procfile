@@ -1,0 +1,1 @@
+web: gunicorn marvel_heroes:app --preload --timeout 60

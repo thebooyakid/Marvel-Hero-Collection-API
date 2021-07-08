@@ -8,7 +8,7 @@ api = Blueprint('api', __name__, url_prefix='/api')
 def getdata():
     return{'test':'test'}
 
-api.route('/hero', methods = ['POST'])
+@api.route('/hero', methods = ['POST'])
 @token_required
 def create_hero(current_user_token):
     name = request.json['name']
@@ -20,7 +20,7 @@ def create_hero(current_user_token):
     
     #print(f"TEST: {current_user_token.token}")
     
-    hero = Hero(name,description,comics_appeared_in,super_powers,date_created,user_token=owner)
+    hero = Hero(name,description,comics_appeared_in,super_powers,date_created,owner=current_user_token)
     #tried owner=owner, owner=user_token, user_token=owner(if any of that matters)
     
     db.session.add(hero)

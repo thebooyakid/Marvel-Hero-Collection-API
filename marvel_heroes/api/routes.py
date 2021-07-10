@@ -15,14 +15,13 @@ def create_hero(current_user_token):
     description = request.json['description']
     comics_appeared_in = request.json['comics_appeared_in']
     super_powers = request.json['super_powers']
-    date_created = request.json['date_created']
-    owner = current_user_token.token
+    # date_created = request.json['date_created']
+    user_token = current_user_token.token
     
     #print(f"TEST: {current_user_token.token}")
     
-    hero = Hero(name,description,comics_appeared_in,super_powers,date_created,owner=current_user_token)
-    #tried owner=owner, owner=user_token, user_token=owner(if any of that matters)
-    
+    hero = Hero(name,description,comics_appeared_in,super_powers,user_token = user_token)
+        
     db.session.add(hero)
     db.session.commit()
 

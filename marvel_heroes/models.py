@@ -22,7 +22,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String, unique = True, nullable = False)
     password = db.Column(db.String, nullable = True, default='')
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
-    token = db.Column(db.String, default = '', unique = True)    
+    token = db.Column(db.String, default = '', unique = True)   
 
     def __init__(self,email,username = '',name = '', id = '', password = ''):
         self.id = self.set_id()
@@ -51,23 +51,24 @@ class Hero(db.Model):
     description = db.Column(db.String(500))
     comics_appeared_in = db.Column(db.Integer)
     super_power = db.Column(db.String(500))
-    date_created = db.Column(db.DateTime)
-    owner = db.Column(db.String(100),db.ForeignKey('user.token'), nullable = False)
+    # date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
+    user_token = db.Column(db.String(100),db.ForeignKey('user.token'), nullable = False)
 
-    def __init__(self,name,description,comics_appeared_in,super_power,date_created,owner,id =''):
+    def __init__(self,name,description,comics_appeared_in,super_power,user_token,id =''):
         self.id = self.set_id()
         self.name = name
         self.description = description
         self.comics_appeared_in = comics_appeared_in
         self.super_power = super_power
-        self.date_created = date_created
-        self.owner = owner
+        # self.date_created = date_created
+        # self.owner = owner
+        self.user_token = user_token
 
     def set_id(self):
         return(secrets.token_urlsafe())
 
     def __repr__(self):
-        return f"{name} has been added"
+        return f"{self.name} has been added"
 
 class HeroSchema(ma.Schema):
     class Meta:

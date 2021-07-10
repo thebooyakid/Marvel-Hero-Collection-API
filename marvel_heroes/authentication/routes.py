@@ -14,9 +14,9 @@ def signup():
             username = form.username.data
             email = form.email.data
             password = form.password.data
-            print(name, username, email,password)
+            print(name, username, email, password)
 
-            user = User(name=name, username=username, email=email, password = password)
+            user = User(name, username, email, password = password)
             db.session.add(user)
             db.session.commit()
 

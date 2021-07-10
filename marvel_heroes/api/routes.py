@@ -18,8 +18,6 @@ def create_hero(current_user_token):
     # date_created = request.json['date_created']
     user_token = current_user_token.token
     
-    #print(f"TEST: {current_user_token.token}")
-    
     hero = Hero(name,description,comics_appeared_in,super_powers,user_token = user_token)
         
     db.session.add(hero)
